@@ -3,10 +3,13 @@
     apt: name=memcached state=latest
 
   - name: Enable memcached service
-    service: name=memcached state=started enabled=true
+    service:
+      name: memcached
+      state: started
+      enabled: true
 
   - name: Write memcached.conf
-    template: 
+    template:
       src: memcached.conf.j2
       dest: /etc/memcached.conf
       mode: 0644
